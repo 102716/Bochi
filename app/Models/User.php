@@ -40,7 +40,6 @@ class User extends Authenticatable
     public function room(){
         return $this->hasOne(Room::class);
     }
-
     
 
     /**

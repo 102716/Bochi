@@ -5,7 +5,7 @@
     </li>
     <li class="nav-item dropdown">
       <a class="nav-link bg-info rounded dropdown-toggle" href="#" id="navbarVersionDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{ site.version }}
+    
       </a>
       <div class="dropdown-menu py-0" aria-labelledby="navbarVersionDropdown">
         <a class="dropdown-item bg-info disabled" href="#">v3.1</a>

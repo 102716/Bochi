@@ -9,6 +9,8 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DiseaseController;
 
+use App\Http\Controllers\DashboardHomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +27,7 @@ use App\Http\Controllers\DiseaseController;
 // });
 
 
-Route::get ('/home',[HomeController::class,"index"]);
+Route::get ('/',[HomeController::class,"index"]);
 Route::get('/booking', [BookingController::class, 'index']);
 Route::get ('/about', [AboutController::class,'index']);
 Route::get ('/services', [ServiceController::class, 'index']);
@@ -34,6 +36,10 @@ Route::get ('/disease', [DiseaseController::class, 'index']);
 
 // Route::get('/booking', 'App\Http\Controllers\BookingController@index');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboards', function () {
+    return view('dashboard.dashboard');
+})->name('dashboards');
+
+
+//Return Dashboard.....
+Route::get('/dashboards', [DashboardHomeController::class, 'index'])->name('dashboard.home');

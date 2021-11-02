@@ -13,7 +13,8 @@ class Appointment extends Model
         'appointment_name',
         'appointment_date',
         'location',
-        'description'
+        'description',
+        'user_id'
     ];
 
     public function user(){

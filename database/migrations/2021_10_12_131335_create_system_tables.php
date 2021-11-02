@@ -18,20 +18,15 @@ class CreateSystemTables extends Migration
             $table->string('name');
         });
 
-        Schema::create('user', function (Blueprint $table) {
-            $table->id();
-
-            $table->foreign('role_id')->references('id')->on('role'); 
-        });
-
         Schema::create('room', function (Blueprint $table) {
             $table->id();
             $table->string('room_name');
             $table->text('description');
             $table->datetime('start_time');
             $table->datetime('end_time');
+            $table->unsignedBigInteger('user_id');
 
-            $table->foreign('user_id')->references('id')->on('user');
+            $table->foreign('user_id')->references('id')->on('users');
         });
 
         Schema::create('appointment', function(Blueprint $table){
@@ -40,17 +35,19 @@ class CreateSystemTables extends Migration
             $table->date('appointment_date');
             $table->string('location');
             $table->text('description');  
+            $table->unsignedbigInteger('user_id');
             
-            $table->foreign('user_id')->references('id')->on('user');
+            $table->foreign('user_id')->references('id')->on('users');
         });
 
-        
         Schema::create ('disease', function (Blueprint $table){
             $table->id();
             $table->string('name');
             $table->text('description');
+            $table->string('image');
+            $table->unsignedBigInteger('user_id');
 
-            $table->foreign('user_id')->references('id')->on('user');
+            $table->foreign('user_id')->references('id')->on('users');
         });
 
         Schema::create('symptoms', function (Blueprint $table) {
