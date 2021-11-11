@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ url('/home') }}">Home</a>
+                    <a class="nav-link" href="{{ url('/') }}">Home</a>
                 </li>
 
                 <li class="nav-item">
@@ -40,7 +40,9 @@
               @if (Route::has('login'))
                   <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                       @auth
-                          <a href="{{ url('/dashboards') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/dashboards') }}">{{ Auth::user()->name }}</a>
+                        </li>
                       @else
                         <li> <a href="{{ route('login') }}" class="nav-link">Log in</a> </li>
 
